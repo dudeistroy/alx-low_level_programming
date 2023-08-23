@@ -20,6 +20,6 @@ int main(void)
 			sum += i;
 		}
 	}
-	printf("The sum of all the multiples of 3 or 5 or below 1024 is: %d\n", sum);
+	printf("%d\n", sum);
 	return (0);
 }
