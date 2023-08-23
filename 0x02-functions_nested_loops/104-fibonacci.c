@@ -10,9 +10,9 @@
 int main(void)
 {
 	int i;
-	unsigned int fib1 = 1, fib2 = 2, nextFib;
+	unsigned long int fib1 = 1, fib2 = 2, nextFib;
 
-	printf("%u, %u, ", fib1, fib2);
+	printf("%lu, %lu, ", fib1, fib2);
 
 	for (i = 2; i < 98; i++)
 	{
@@ -22,11 +22,11 @@ int main(void)
 
 		if (i < 97)
 		{
-			printf("%u, ", nextFib);
+			printf("%lu, ", nextFib);
 		}
 		else
 		{
-			printf("%u\n", nextFib);
+			printf("%lu\n", nextFib);
 		}
 	}
 
