@@ -11,40 +11,16 @@ char *rot13(char *str)
 	char *input = str;
 	char *output = str;
 
-	char uppercase[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char lowercase[] = "abcdefghijklmnopqrstuvwxyz";
-
-	char rot13Upper[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
-	char rot13Lower[] = "nopqrstuvwxyzabcdefghijklm";
-
-	int i;
-
 	while (*input)
 	{
-		if (*input >= 'A' && *input <= 'Z')
-		{
-			for (i = 0; i < 26; i++)
-			{
-				if (*input == uppercase[i])
-				{
-					*output = rot13Upper[i];
-					break;
-				}
-			}
-		}
-		else if (*input >= 'a' && *input <= 'z')
-		{
-			for (i = 0; i < 26; i++)
-			{
-				if (*input == lowercase[i])
-				{
-					*output = rot13Lower[i];
-					break;
-				}
-			}
-		}
-		input++;
-		output++;
+	char shift = (*input >= 'A' && *input <= 'Z') ? 'A' : (*input >= 'a' && *input <= 'z') ? 'a' : 0;
+
+	if (shift)
+	{
+		*output = ((*input - shift + 13) % 26) + shift;
+	}
+	input++;
+	output++;
 	}
 
 	return (str);
