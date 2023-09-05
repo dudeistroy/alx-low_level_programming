@@ -8,20 +8,21 @@
  */
 char *rot13(char *str)
 {
-	char *input = str;
-	char *output = str;
+	int i;
+	int j;
+	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char datarot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	while (*input)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-	char shift = (*input >= 'A' && *input <= 'Z') ? 'A' : (*input >= 'a' && *input <= 'z') ? 'a' : 0;
-
-	if (shift)
-	{
-		*output = ((*input - shift + 13) % 26) + shift;
+		for (j = 0; j < 52; j++)
+		{
+			if (str[i] == data1[j])
+			{
+				str[i] = datarot[j];
+				break;
+			}
+		}
 	}
-	input++;
-	output++;
-	}
-
 	return (str);
 }
