@@ -4,6 +4,8 @@
  * main - Entry Point
  *
  * Description: A program that prints its name
+ * @argc: The number of command line arguments
+ * @argv: An array of strings containing command line arguments
  *
  * Return: Always 0 (Success)
  */
